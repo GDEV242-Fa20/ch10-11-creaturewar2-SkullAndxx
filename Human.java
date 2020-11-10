@@ -5,16 +5,17 @@
  * Implements a maximum/minimum strength for the creature type [20/5]
  * Implements a maximum/minimum hitpoint total for the creature type [25/5]
  * 
- * @author Bill Crosbie
- * @version 2020-10 v1.0
+ * @author Erick Rubio
+ * @version v1.0 11-9-2020
  */
-public class Human extends Creature
+public class Human extends BasicCreature
 {
     // instance variables - replace the example below with your own
     private static final int MAX_HUMAN_HP = 25;
     private static final int MIN_HUMAN_HP = 5;
     private static final int MAX_HUMAN_STR = 20;
     private static final int MIN_HUMAN_STR = 5;
+    Randomizer r = new Randomizer();
 
     /**
      * Constructor for objects of class Human -
@@ -32,11 +33,12 @@ public class Human extends Creature
         // max and min values to this class only
         // max-min is range of values
         // range + min ensures that the values don't start at one.
-        super(
-            Randomizer.nextInt(MAX_HUMAN_HP-MIN_HUMAN_HP)+MIN_HUMAN_HP,    
-            Randomizer.nextInt(MAX_HUMAN_STR-MIN_HUMAN_STR)+MIN_HUMAN_STR
-        );
-          
+        // super(
+            // Randomizer.nextInt(MAX_HUMAN_HP-MIN_HUMAN_HP)+MIN_HUMAN_HP,    
+            // Randomizer.nextInt(MAX_HUMAN_STR-MIN_HUMAN_STR)+MIN_HUMAN_STR
+        // );
+        r.nextInt(MAX_HUMAN_HP-MIN_HUMAN_HP)+MIN_HUMAN_HP;
+        r.nextInt(MAX_HUMAN_STR-MIN_HUMAN_STR)+MIN_HUMAN_STR;
     }
     
     

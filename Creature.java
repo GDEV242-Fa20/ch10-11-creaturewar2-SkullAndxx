@@ -1,4 +1,3 @@
-
 /**
  * Abstract class Creature - 
  * The creature is the main class from which all other battling creatures derive.
@@ -7,7 +6,7 @@
  * the creature is alive or knocked out. The creature is also responsible for calculating
  * damage delivered based on the creature's strength (1 to str) 
  * 
- * @author Crosbie
+ * @author Erick Rubio
  * @version 2020-10 v1.0
  */
 // we will learn what the abstract keyword does in a later chapter
@@ -16,10 +15,10 @@ public abstract class Creature
     private int str;        // The strength of this creature
     private int max_hp;     // The maximum hit points the creature can have (used if healing enabled)
     private int hp;         // the current numberof hit points the creature has
-    
+    //private Randomizer r;
     /**
      * default constructor - this should never actually run.
-     * It is the job of dervived classes to set up the proper number of hit points and 
+     * It is the job of derived classes to set up the proper number of hit points and 
      * strength for the subclass
      */
     public Creature (){
@@ -38,6 +37,9 @@ public abstract class Creature
      */
     public Creature (int str, int hp) {
        //implement this
+       //r = new Randomizer();
+       //str = 
+       
     }
     
     
@@ -57,16 +59,25 @@ public abstract class Creature
      */
     public boolean isAlive() {
         // TODO: implement a method to report if the creature yet lives
-        return false; //change this
+        if(hp > 0){
+            return true;
+        }else{
+            return false; //change this
+        }
     }
     
     /**
-     * Is this creature knockedOut?
-     * @return true when current hit point level is less than or equal to zero
+     * Is this creature knockedOut? 
+     * @return true when current hit point level is less than or equal to zero 
+     * 
      */
     public boolean isKnockedOut() {
         //TODO: implement a method to report if the creature has been killed
-        return false; //change this
+        if(hp <= 0){
+            return true;
+        }else{
+            return false; //change this        
+        }
     }
     
     
@@ -77,6 +88,15 @@ public abstract class Creature
      */
     public void takeDamage(int damage) {
         // TODO: implement this
+        hp = hp - damage;
     }
     
+    /**
+     * return number of hitPoints in private field 
+     * (can be used to report on status of very robust enemies)
+     * @return return number of hitPoints in private field 
+     */
+    public int getHealth() {
+        return hp;
+    }    
 }
